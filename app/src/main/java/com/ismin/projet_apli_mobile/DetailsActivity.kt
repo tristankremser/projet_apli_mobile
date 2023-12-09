@@ -1,65 +1,23 @@
 package com.ismin.projet_apli_mobile
 
 import android.os.Bundle
-import android.widget.Button
-import android.content.Intent
 import android.widget.TextView
-import android.widget.ImageButton
-import android.widget.Toast
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-
 import androidx.appcompat.app.AppCompatActivity
 
 
-class SecondeActivity : AppCompatActivity() {
-    /*
+class DetailsActivity : AppCompatActivity() {
+/*
         private lateinit var restaurant: Restaurant
 
         private var isFavori = false
 
-        private val retrofit = Retrofit.Builder()
-            .baseUrl("https://restaurants.cleverapps.io/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        private val restaurantService = retrofit.create(RestaurantService::class.java)
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.fragment_restaurant_details)
 
-            val nom = intent.getSerializableExtra("EXTRA_RESTAURANT_NOM") as String?
 
-
-            if (nom != null) {
-                val nomrestaurant = nom
-                val call = restaurantService.getRestaurantByName(nomrestaurant)
-                call.enqueue(object : Callback<Restaurant> {
-                    override fun onResponse(call: Call<Restaurant>, response: Response<Restaurant>) {
-                        if (response.isSuccessful) {
-                            val tempRestaurant = response.body()
-                            if (tempRestaurant != null) {
-                                restaurant = tempRestaurant
-                                displayRestaurantDetails(restaurant)
-                            }
-                        } else {
-                            Toast.makeText(
-                                this@SecondeActivity,
-                                "Le restaurant n'a pas été trouvé.",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                    }
-
-                    override fun onFailure(call: Call<Restaurant>, t: Throwable) {
-                    }
-                })
-
-                val btnRetour: Button = findViewById(R.id.seconde_activity_btnRetour)
+            val btnRetour: Button = findViewById(R.id.seconde_activity_btnRetour)
 
                 btnRetour.setOnClickListener {
                     returnToMainActivity()
@@ -133,6 +91,9 @@ class SecondeActivity : AppCompatActivity() {
 
 
             finish()
+
         }
-    */
+
+
+ */
 }

@@ -8,24 +8,37 @@
     android:paddingRight="16dp"
     android:paddingBottom="16dp">
 
+
+    <ImageButton
+        android:id="@+id/a_restaurant_details_btnFavori"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:contentDescription="Favori"
+        android:onClick="toggleFavori"
+        android:src="@android:drawable/btn_star_big_off" />
+
     <TextView
-        android:id="@+id/f_restaurant_details_nomoffre"
+        android:id="@+id/a_restaurant_details_nomoffre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="66dp"
         android:layout_marginBottom="4dp"
         android:text="Nom de l'offre"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/f_restaurant_details_type"
+        android:id="@+id/a_restaurant_details_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/f_restaurant_details_nomoffre"
+        android:layout_below="@+id/a_restaurant_details_nomoffre"
         android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="4dp"
@@ -34,10 +47,10 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/f_restaurant_details_categorie"
+        android:id="@+id/a_restaurant_details_categorie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/f_restaurant_details_type"
+        android:layout_below="@id/a_restaurant_details_type"
         android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="4dp"
@@ -46,10 +59,10 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/f_restaurant_details_adresse"
+        android:id="@+id/a_restaurant_details_adresse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/f_restaurant_details_categorie"
+        android:layout_below="@id/a_restaurant_details_categorie"
         android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="4dp"
@@ -58,10 +71,10 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/f_restaurant_details_codepostal"
+        android:id="@+id/a_restaurant_details_codepostal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/f_restaurant_details_adresse"
+        android:layout_below="@id/a_restaurant_details_adresse"
         android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="4dp"
@@ -70,10 +83,10 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/f_restaurant_details_commune"
+        android:id="@+id/a_restaurant_details_commune"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/f_restaurant_details_codepostal"
+        android:layout_below="@id/a_restaurant_details_codepostal"
         android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="4dp"
@@ -82,10 +95,10 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/f_restaurant_details_latitude"
+        android:id="@+id/a_restaurant_details_latitude"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/f_restaurant_details_commune"
+        android:layout_below="@id/a_restaurant_details_commune"
         android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="4dp"
@@ -94,10 +107,10 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/f_restaurant_details_longitude"
+        android:id="@+id/a_restaurant_details_longitude"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/f_restaurant_details_latitude"
+        android:layout_below="@id/a_restaurant_details_latitude"
         android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="4dp"
@@ -106,10 +119,10 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/f_restaurant_details_commtel"
+        android:id="@+id/a_restaurant_details_commtel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/f_restaurant_details_longitude"
+        android:layout_below="@id/a_restaurant_details_longitude"
         android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="4dp"
@@ -117,10 +130,10 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/f_restaurant_details_commmail"
+        android:id="@+id/a_restaurant_details_commmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/f_restaurant_details_commtel"
+        android:layout_below="@id/a_restaurant_details_commtel"
         android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
@@ -129,10 +142,10 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/f_restaurant_details_commweb"
+        android:id="@+id/a_restaurant_details_commweb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/f_restaurant_details_commmail"
+        android:layout_below="@id/a_restaurant_details_commmail"
         android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="4dp"
@@ -141,10 +154,10 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/f_restaurant_details_videosurl"
+        android:id="@+id/a_restaurant_details_videosurl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/f_restaurant_details_commweb"
+        android:layout_below="@id/a_restaurant_details_commweb"
         android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="4dp"
@@ -153,10 +166,10 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/f_restaurant_details_plateformeurl"
+        android:id="@+id/a_restaurant_details_plateformeurl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/f_restaurant_details_videosurl"
+        android:layout_below="@id/a_restaurant_details_videosurl"
         android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="4dp"
@@ -165,10 +178,10 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/f_restaurant_details_languesparleesacceuil"
+        android:id="@+id/a_restaurant_details_languesparleesacceuil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/f_restaurant_details_plateformeurl"
+        android:layout_below="@+id/a_restaurant_details_plateformeurl"
         android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="4dp"
@@ -176,13 +189,13 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/f_restaurant_details_commweb" />
+        app:layout_constraintTop_toBottomOf="@id/a_restaurant_details_commweb" />
 
     <TextView
-        android:id="@+id/f_restaurant_details_acceuilgroupe"
+        android:id="@+id/a_restaurant_details_acceuilgroupe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/f_restaurant_details_languesparleesacceuil"
+        android:layout_below="@+id/a_restaurant_details_languesparleesacceuil"
         android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="4dp"
@@ -190,13 +203,13 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/f_restaurant_details_languesparleesacceuil" />
+        app:layout_constraintTop_toBottomOf="@id/a_restaurant_details_languesparleesacceuil" />
 
     <TextView
-        android:id="@+id/f_restaurant_details_tarifs"
+        android:id="@+id/a_restaurant_details_tarifs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/f_restaurant_details_modepaiement"
+        android:layout_below="@+id/a_restaurant_details_modepaiement"
         android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="4dp"
@@ -204,13 +217,13 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/f_restaurant_details_acceuilgroupe" />
+        app:layout_constraintTop_toBottomOf="@id/a_restaurant_details_acceuilgroupe" />
 
     <TextView
-        android:id="@+id/f_restaurant_details_modepaiement"
+        android:id="@+id/a_restaurant_details_modepaiement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/f_restaurant_details_acceuilgroupe"
+        android:layout_below="@+id/a_restaurant_details_acceuilgroupe"
         android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="4dp"
@@ -218,10 +231,10 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/f_restaurant_details_tarifs" />
+        app:layout_constraintTop_toBottomOf="@id/a_restaurant_details_tarifs" />
 
     <Button
-        android:id="@+id/f_restaurant_details_btnRetour"
+        android:id="@+id/a_restaurant_details_btnRetour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -231,7 +244,7 @@
         android:layout_marginStart="110dp"
         android:layout_marginEnd="110dp"
         android:layout_marginBottom="0dp"
-        android:text="Retour"
+        android:text="Retour à la liste des restaurants"
         android:onClick="retourVersMainActivity"/>
 
 </RelativeLayout>

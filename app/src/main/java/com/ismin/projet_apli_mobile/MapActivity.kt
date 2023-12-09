@@ -102,7 +102,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
 
-
+        Log.d("Test", "$restaurantList")
         //ajout de chaque restaurant à la map
         restaurantList.getAllRestaurants().customForEach { restaurant ->
             googleMap.addMarker(

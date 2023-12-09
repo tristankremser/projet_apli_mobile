@@ -1,20 +1,29 @@
 package com.ismin.projet_apli_mobile
 
-import android.content.Context
+
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import java.lang.IllegalStateException
 
+private const val ARG_RESTAURANT = "param1"
 
-class RestaurantDetailsFragment(restau: Restaurant) : Fragment() {
+class RestaurantDetailsFragment() : Fragment() {
 
-    private var restaurant = restau
-    private var isFavori = false
+    private lateinit var restaurant: Restaurant
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            restaurant = it.getSerializable(ARG_RESTAURANT) as Restaurant
+
+        }
+    }
 
     private lateinit var nomoffreTextView: TextView
     private lateinit var typeTextView: TextView
@@ -61,19 +70,6 @@ class RestaurantDetailsFragment(restau: Restaurant) : Fragment() {
         modePaiementTextView = view.findViewById(R.id.f_restaurant_details_modepaiement)
         btnRetour = view.findViewById(R.id.f_restaurant_details_btnRetour)
 
-        displayRestaurantDetails(restaurant)
-        return view
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        btnRetour.setOnClickListener {
-            retourVersMainActivity()
-        }
-    }
-
-    private fun displayRestaurantDetails(restaurant: Restaurant) {
         nomoffreTextView.text = "Nom: ${restaurant.nomoffre}"
         typeTextView.text = "Type: ${restaurant.type ?: "Non spécifié"}"
         categorieTextView.text = "Catégorie: ${restaurant.categorie ?: "Non spécifiée"}"
@@ -91,10 +87,29 @@ class RestaurantDetailsFragment(restau: Restaurant) : Fragment() {
         acceuilGroupeTextView.text = "Accueil groupe: ${restaurant.acceuilgroupe ?: "Non spécifié"}"
         tarifsTextView.text = "Tarifs: ${restaurant.tarifs ?: "Non spécifiés"}"
         modePaiementTextView.text = "Modes de paiement: ${restaurant.modepaiement?.joinToString(", ") ?: "Non spécifiés"}"
+
+        return view
     }
 
-    private fun retourVersMainActivity() {
-        activity?.onBackPressed()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+        btnRetour.setOnClickListener{
+            (activity as MainActivity).displayRestaurantListFragment()
+        }
+    }
+
+
+
+    companion object {
+        @JvmStatic
+        fun newInstance(restaurant: Restaurant) =
+            RestaurantDetailsFragment().apply {
+                arguments = Bundle().apply {
+                    putSerializable(ARG_RESTAURANT, restaurant)
+                }
+            }
     }
 
 }

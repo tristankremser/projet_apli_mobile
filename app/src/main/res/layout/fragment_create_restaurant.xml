@@ -120,11 +120,11 @@
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/f_create_restaurant_edt_commweb"
-        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintVertical_bias="0.846"
         app:layout_constraintVertical_chainStyle="packed" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,11 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-class RestaurantAdapter(private var restaurants: List<Restaurant>, private val itemClickListener: OnItemClickListener ) : RecyclerView.Adapter<RestaurantViewHolder>() {
+class RestaurantAdapter(private var restaurants: List<Restaurant>, private var favorisList: List<String>, private val itemClickListener: OnItemClickListener) : RecyclerView.Adapter<RestaurantViewHolder>() {
 
-    interface OnItemClickListener {
-        fun onItemClick(restaurant: Restaurant)
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestaurantViewHolder {
         val rowView = LayoutInflater.from(parent.context)
@@ -19,13 +16,29 @@ class RestaurantAdapter(private var restaurants: List<Restaurant>, private val i
 
     override fun onBindViewHolder(holder: RestaurantViewHolder, position: Int) {
         val restaurant = restaurants[position]
+        var listFavoris: MutableList<String> = ArrayList(favorisList)
         holder.txvNomoffre.text = restaurant.nomoffre
         holder.txvCommune.text = restaurant.commune
         holder.itemView.setOnClickListener {
             itemClickListener.onItemClick(restaurant)
         }
-        holder.btnFavori.setImageResource(if (restaurant.isFavori) android.R.drawable.btn_star_big_on else android.R.drawable.btn_star_big_off)
-        Picasso.get().load(restaurant.urlimage).resize(48,48).centerCrop().into(holder.imgRestaurant)
+        if(listFavoris.contains(restaurant.nomoffre)) {
+            holder.btnFavori.setImageResource(android.R.drawable.btn_star_big_on)
+        }else{
+            holder.btnFavori.setImageResource(android.R.drawable.btn_star_big_off)
+        }
+
+        holder.btnFavori.setOnClickListener {
+            itemClickListener.onFavoriClick(restaurant)
+            if (listFavoris.contains(restaurant.nomoffre)) {
+                holder.btnFavori.setImageResource(android.R.drawable.btn_star_big_off)
+                listFavoris.remove(restaurant.nomoffre)
+            } else {
+                holder.btnFavori.setImageResource(android.R.drawable.btn_star_big_on)
+                listFavoris.add(restaurant.nomoffre)
+            }
+        }
+        Picasso.get().load(restaurant.imageUrl).resize(48,48).centerCrop().into(holder.imgRestaurant)
     }
 
     override fun getItemCount(): Int {
@@ -36,4 +49,5 @@ class RestaurantAdapter(private var restaurants: List<Restaurant>, private val i
         restaurants = allRestaurants
         notifyDataSetChanged()
     }
+
 }

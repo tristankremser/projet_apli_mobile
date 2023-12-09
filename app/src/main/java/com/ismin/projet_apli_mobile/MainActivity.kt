@@ -1,5 +1,6 @@
 package com.ismin.projet_apli_mobile
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -16,16 +17,17 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-
-class MainActivity : AppCompatActivity(), RestaurantCreator {
+class MainActivity : AppCompatActivity(), RestaurantCreator{
 
     private val restaurantList = RestaurantList()
+    private val favorisList = mutableListOf<String>()
 
     private val floatingActionButton: FloatingActionButton by lazy {
         findViewById(R.id.a_main_btn_create_restaurant)
     }
 
     private lateinit var restaurantAdapter: RestaurantAdapter
+
 
     private val retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
@@ -49,7 +51,6 @@ class MainActivity : AppCompatActivity(), RestaurantCreator {
                     if (response.isSuccessful) {
                         val allRestaurants: List<Restaurant> = response.body()!!
                         restaurantList.addRestaurants(allRestaurants)
-
                         displayRestaurantListFragment()
                     }
                 }
@@ -64,11 +65,6 @@ class MainActivity : AppCompatActivity(), RestaurantCreator {
             displayCreateRestaurantFragment()
         }
 
-        restaurantAdapter = RestaurantAdapter(restaurantList.getAllRestaurants(), object : RestaurantAdapter.OnItemClickListener {
-            override fun onItemClick(restaurant: Restaurant) {
-                displayRestaurantDetailsFragment(restaurant)
-            }
-        })
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -89,7 +85,6 @@ class MainActivity : AppCompatActivity(), RestaurantCreator {
                 }
                 R.id.action_map -> {
                     val intent = Intent(this, MapActivity::class.java)
-                    //intent.putExtra("EXTRA_RESTAURANT_LIST", restaurantList.getAllRestaurants())
                     startActivity(intent)
                     true
                 }
@@ -103,31 +98,44 @@ class MainActivity : AppCompatActivity(), RestaurantCreator {
         }
     }
 
-    override fun onPause() {
-        super.onPause()
-        // on libère les données pour éviter l'erreur TransactionTooLarge
-        restaurantList.clear()
+    fun changeFavoris(nom: String) {
+        if (favorisList.contains(nom)) {
+            favorisList.remove(nom)
+        }
+        else{
+            favorisList.add(nom)
+        }
     }
 
-    private fun displayRestaurantDetailsFragment(restaurant: Restaurant) {
+    fun displayRestaurantListFragment() {
+        val sortedRestaurantList = restaurantList.getAllRestaurants().sortedWith { restaurant1, restaurant2 ->
+            restaurant1.isFavoriFirstComparator(restaurant2)
+        }
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(
-            R.id.a_main_lyt_fragment ,
-            RestaurantDetailsFragment(restaurant)
+            R.id.a_main_lyt_fragment,
+            RestaurantListFragment.newInstance(ArrayList(sortedRestaurantList), ArrayList(favorisList))
         )
         transaction.commit()
         floatingActionButton.visibility = View.VISIBLE
+
     }
 
-    private fun displayRestaurantListFragment() {
-    val transaction = supportFragmentManager.beginTransaction()
-    transaction.replace(
-        R.id.a_main_lyt_fragment,
-        RestaurantListFragment.newInstance(restaurantList.getAllRestaurants())
-    )
-    transaction.commit()
-    floatingActionButton.visibility = View.VISIBLE
-}
+    fun Restaurant.isFavoriFirstComparator(other: Restaurant): Int {
+        return when {
+            favorisList.contains(this.nomoffre) && !favorisList.contains(other.nomoffre) -> -1
+            !favorisList.contains(this.nomoffre) && favorisList.contains(other.nomoffre) -> 1
+            else -> 0
+        }
+    }
+
+    fun displayRestaurantDetails(restaurant: Restaurant) {
+        val detailsFragment = RestaurantDetailsFragment.newInstance(restaurant)
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.a_main_lyt_fragment, detailsFragment)
+
+        transaction.commit()
+    }
 
     private fun displayCreateRestaurantFragment() {
         val transaction = supportFragmentManager.beginTransaction()
@@ -152,7 +160,6 @@ class MainActivity : AppCompatActivity(), RestaurantCreator {
                 onResponse = {
                     val restaurantFromServer: Restaurant? = it.body()
                     restaurantList.addRestaurant(restaurantFromServer!!)
-                    displayRestaurantListFragment()
                 }
 
                 onFailure = {
@@ -163,4 +170,7 @@ class MainActivity : AppCompatActivity(), RestaurantCreator {
         restaurantList.addRestaurant(restaurant)
         displayRestaurantListFragment()
     }
+
+
+
 }

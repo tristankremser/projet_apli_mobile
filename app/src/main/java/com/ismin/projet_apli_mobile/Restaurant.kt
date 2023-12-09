@@ -23,6 +23,6 @@ data class Restaurant(
     val tarifs: String? = null,
     val modepaiement: Array<String>? = null,
     val adressecomplete: String? = null,
-    val urlimage: String? = null,
+    val imageUrl: String? = null,
     var isFavori: Boolean = false
 ) : Serializable

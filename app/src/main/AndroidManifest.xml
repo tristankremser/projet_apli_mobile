@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -13,7 +16,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCaxv0DvKAtNvdtWwTDLARcRo8K0CEldiE" />
+            android:value="AIzaSyCeFnej2E05-oIu_2CSJk1EkvDXcDGxeH0" />
 
         <activity
             android:name="com.ismin.projet_apli_mobile.MainActivity"
@@ -24,7 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondeActivity">
+        <activity android:name=".DetailsActivity">
     
         </activity>
 

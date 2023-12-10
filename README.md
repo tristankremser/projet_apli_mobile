@@ -34,6 +34,9 @@ Ce projet est une application Android conçue pour gérer un service de restaura
 - *Drawable et Mipmap* : Ressources graphiques comme les icônes.
 - *Values* : Ressources telles que les chaînes de caractères, les couleurs, et les styles.
 
+### Problèmes avec Google Maps
+Parfois, l'application peut ne pas afficher les restaurants sur la carte Google Maps. Cela est dû à un problème avec la clé d'API Google Maps, qui peut être résolu en générant une nouvelle clé et en la remplaçant dans le fichier android_manifest.xml.
+
 ## Installation
 
 Pour exécuter l'application, clonez le dépôt et ouvrez-le dans un environnement de développement Android comme Android Studio.

@@ -16,7 +16,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCeFnej2E05-oIu_2CSJk1EkvDXcDGxeH0" />
+            android:value="AIzaSyCaxv0DvKAtNvdtWwTDLARcRo8K0CEldiE" />
 
         <activity
             android:name="com.ismin.projet_apli_mobile.MainActivity"
@@ -26,9 +26,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".DetailsActivity">
-    
         </activity>
 
         <activity android:name=".InfoActivity">

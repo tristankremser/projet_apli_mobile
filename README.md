@@ -1,16 +1,39 @@
-L'application est composée : 
--d'une MainActivity qui va permettre de récupérer la liste des restaurants via l'url et va ensuite afficher un des fragments de l'application.
--d'une MapActivity accessible via la toolbar qui récupere également la lsite des restaurants via l'url, nous avons fait le choix de ne pas envoyer cette liste via l'intent parce que nous rencontrions des problèmes de transaction, nous réutilisons ainsi retrofit pour obtenir la liste des restaurants et récupérer leurs coordonnées pour les afficher sur google map.
--d'une InfoActivity qui affiche simplement textView comprenant l'url de la base de données ainsi que des informations générales sur l'application.
+# Projet Apli Mobile - Gestion de Restaurants
 
-Lorsque l'on ouvre l'application on arrive directement sur MainActivity qui va afficher le fragment RestaurantListFragment qui permet d'afficher la liste des restaurants(il est possible qu'au premier lancement de l'application la liste ne s'affiche pas mais en redémarrant cela devrait fonctionner). 
-Il y a ensuite plusieurs fonctionnalités: 
-- un bouton supprimer qui supprime l'entiereté de la liste
-- un bouton actualiser qui permet d'actualiser la liste
-- un bouton toolbar qui permet de naviguer entre chaque activité
-- des boutons Favori en forme d'étoile sur chaque restaurant permettant de l'ajouter ou l'enlever de la liste des favoris, après actualisation la liste est rangée de telle sorte à ce que les restaurants favoris soient affichés en premier
-- chaque restaurant est cliquable et un clic permet d'afficher les détails du restaurant en question à l'aide de RestaurantDetailsFragment
-- un bouton ajouter un restaurant en bas à droite qui permet d'ajouter un restaurant à la base de données via une méthode POST
+Ce projet est une application Android conçue pour gérer un service de restaurants. Elle offre diverses fonctionnalités telles que l'affichage, l'ajout, la suppression, et la gestion des restaurants favoris.
 
-L'affichage des différents fragments est géré à l'aide de supportFragmentManager qui permet de réaliser des transactions pour changer l'instance de l'affichage de MainActivity.
-Les clicks sont quant à eux gérés à l'aide d'une interface onItemClickedListener, qui gère donc à la fois les clicks pour afficher les détails d'un restaurant mais également ceux qui pour ajouter/enlever un restaurant aux favoris
+## Fonctionnalités
+
+### Affichage et Gestion des Restaurants
+- *Afficher la Liste des Restaurants* : Récupère et affiche la liste des restaurants via une URL.
+- *Afficher les Détails des Restaurants* : Permet d'afficher les détails d'un restaurant spécifique.
+- *Afficher les Restaurants sur une Carte* : Utilise Google Maps pour afficher les restaurants sur une carte.
+- *Ajouter un Restaurant* : Permet d'ajouter un nouveau restaurant à la base de données.
+- *Supprimer les Restaurants* : Permet de supprimer tout les restaurants de la liste.
+- *Gérer les Favoris* : Permet d'ajouter ou de retirer des restaurants de la liste des favoris.
+
+### Architecture du Projet
+
+#### Code Source Java/Kotlin
+- *MainActivity.kt* : Point d'entrée principal de l'application, gérant l'affichage initial et la navigation entre les fragments.
+- *MapActivity.kt* : Affiche les restaurants sur une carte Google Maps.
+- *InfoActivity.kt* : Affiche des informations générales sur l'application.
+- *CreateRestaurantFragment.kt* : Fragment pour créer et ajouter un nouveau restaurant.
+- *RestaurantDetailsFragment.kt* : Fragment pour afficher les détails d'un restaurant.
+- *RestaurantListFragment.kt* : Fragment pour afficher la liste des restaurants.
+
+#### Ressources et Layouts
+- *activity_main.xml* : Layout principal de l'application.
+- *activity_map.xml* : Layout pour l'affichage de la carte Google Maps.
+- *activity_info.xml* : Layout pour l'affichage des informations de l'application.
+- *fragment_create_restaurant.xml* : Layout pour le fragment de création d'un restaurant.
+- *fragment_restaurant_details.xml* : Layout pour le fragment d'affichage des détails d'un restaurant.
+- *fragment_restaurant_list.xml* : Layout pour le fragment d'affichage de la liste des restaurants.
+- *row_restaurant.xml* : Layout pour chaque élément de la liste des restaurants.
+- *menu_main.xml* : Définit le menu de l'application.
+- *Drawable et Mipmap* : Ressources graphiques comme les icônes.
+- *Values* : Ressources telles que les chaînes de caractères, les couleurs, et les styles.
+
+## Installation
+
+Pour exécuter l'application, clonez le dépôt et ouvrez-le dans un environnement de développement Android comme Android Studio.

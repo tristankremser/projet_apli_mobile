@@ -18,8 +18,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="4dp"
         android:text="Nom de l'offre"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textSize="18sp"/>
 
     <TextView
         android:id="@+id/f_restaurant_details_type"
@@ -174,7 +173,6 @@
         android:layout_marginTop="4dp"
         android:text="Langues parlées à l'accueil:"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/f_restaurant_details_commweb" />
 
@@ -188,7 +186,6 @@
         android:layout_marginTop="4dp"
         android:text="Accueil des groupes:"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/f_restaurant_details_languesparleesacceuil" />
 
@@ -202,7 +199,6 @@
         android:layout_marginTop="4dp"
         android:text="Tarifs:"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/f_restaurant_details_acceuilgroupe" />
 
@@ -216,7 +212,6 @@
         android:layout_marginTop="4dp"
         android:text="Modes de paiement acceptés:"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/f_restaurant_details_tarifs" />
 
